@@ -1,0 +1,11 @@
+id,first_name,last_name,email,department,is_active,is_manager,remote_worker
+1,John,Smith,john.smith@example.com,Engineering,1,0,1
+2,Sarah,Johnson,sarah.j@example.com,Marketing,1,1,0
+3,Michael,Williams,m.williams@example.com,Finance,1,1,0
+4,Emma,Brown,emma.b@example.com,HR,1,0,1
+5,James,Jones,james.jones@example.com,Engineering,0,0,1
+6,Lisa,Garcia,l.garcia@example.com,Sales,1,1,0
+7,Robert,Miller,robert.m@example.com,Finance,1,0,0
+8,Jennifer,Davis,j.davis@example.com,Marketing,1,1,0
+9,David,Rodriguez,d.rodriguez@example.com,Engineering,0,0,1
+10,Patricia,Martinez,p.martinez@example.com,HR,1,0,1 
