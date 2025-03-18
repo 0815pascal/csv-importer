@@ -41,7 +41,7 @@ const CSVImporter = ({ onDataImported }: CSVImporterProps) => {
           const headers = results.meta.fields || [];
           onDataImported(data, headers);
         },
-        error: (error) => {
+        error: (error: Error) => {
           console.error('Error parsing CSV:', error);
           alert('Error parsing CSV file. Please ensure it is a valid CSV.');
         }
