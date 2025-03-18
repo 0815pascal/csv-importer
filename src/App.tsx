@@ -3,6 +3,7 @@ import './App.css'
 import CSVImporter from './components/CSVImporter'
 import CSVDataEditor from './components/CSVDataEditor'
 import CSVExporter from './components/CSVExporter'
+import catImage from './assets/cat.png'
 
 // Predefined columns for new CSV files
 const PREDEFINED_COLUMNS = [
@@ -43,7 +44,10 @@ function App() {
 
   return (
     <div className="app">
-      <h1>CSV Editor</h1>
+      <div className="app-header">
+        <img src={catImage} alt="Cat" className="title-image" />
+        <h1>Meli's Little Helper</h1>
+      </div>
       
       {headers.length === 0 ? (
         // Show tabs for Import or Create when no data is loaded

@@ -2,15 +2,15 @@
   "name": "csv-importer",
   "private": true,
   "version": "0.0.0",
-  "homepage": "https://github.com/0815pascal/csv-importer",
+  "homepage": "https://0815pascal.github.io/csv-importer/",
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "tsc -b && vite build",
-    "lint": "eslint .",
+    "build": "tsc && vite build",
+    "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview",
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d build"
+    "deploy": "gh-pages -d dist"
   },
   "dependencies": {
     "@types/papaparse": "^5.3.15",
