@@ -2,19 +2,85 @@ import { useState } from 'react'
 import './App.css'
 import CSVImporter from './components/CSVImporter'
 import CSVDataEditor from './components/CSVDataEditor'
-import CSVExporter from './components/CSVExporter'
 import catImage from './assets/cat.png'
 
 // Predefined columns for new CSV files
 const PREDEFINED_COLUMNS = [
-  'id',
-  'first_name',
-  'last_name',
-  'email',
-  'department',
-  'is_active',
-  'is_manager',
-  'remote_worker'
+  'First name',
+  'Family name',
+  'Email address',
+  'Under 16 years of age',
+  'Type of the AD Pass',
+  'Attribute',
+  'Name of division of group / name of subordinate organisation',
+  'Job category (job description)',
+  'Job category (position)',
+  'West Management Office (Operation Headquarters)',
+  'Media Centre',
+  'Guest House',
+  'EXPO Arena (backyard)',
+  'EXPO Hall (backyard)',
+  'EXPO National Day Hall (backyard)',
+  'Valid period01(Start)',
+  'Valid period01(End)',
+  'Valid period02(Start)',
+  'Valid period02(End)',
+  'Valid period03(Start)',
+  'Valid period03(End)',
+  'Valid period04(Start)',
+  'Valid period04(End)',
+  'Valid period05(Start)',
+  'Valid period05(End)',
+  'Valid period06(Start)',
+  'Valid period06(End)',
+  'Valid period07(Start)',
+  'Valid period07(End)',
+  'Valid period08(Start)',
+  'Valid period08(End)',
+  'Valid period09(Start)',
+  'Valid period09(End)',
+  'Valid period10(Start)',
+  'Valid period10(End)',
+  'Valid period11(Start)',
+  'Valid period11(End)',
+  'Valid period12(Start)',
+  'Valid period12(End)',
+  'Valid period13(Start)',
+  'Valid period13(End)',
+  'Valid period14(Start)',
+  'Valid period14(End)',
+  'Valid period15(Start)',
+  'Valid period15(End)',
+  'Valid period16(Start)',
+  'Valid period16(End)',
+  'Valid period17(Start)',
+  'Valid period17(End)',
+  'Valid period18(Start)',
+  'Valid period18(End)',
+  'Valid period19(Start)',
+  'Valid period19(End)',
+  'Valid period20(Start)',
+  'Valid period20(End)',
+  'Valid period21(Start)',
+  'Valid period21(End)',
+  'Valid period22(Start)',
+  'Valid period22(End)',
+  'Valid period23(Start)',
+  'Valid period23(End)',
+  'Valid period24(Start)',
+  'Valid period24(End)',
+  'Valid period25(Start)',
+  'Valid period25(End)',
+  'Valid period26(Start)',
+  'Valid period26(End)',
+  'Valid period27(Start)',
+  'Valid period27(End)',
+  'Valid period28(Start)',
+  'Valid period28(End)',
+  'Valid period29(Start)',
+  'Valid period29(End)',
+  'Valid period30(Start)',
+  'Valid period30(End)'
 ];
 
 function App() {
@@ -79,19 +145,12 @@ function App() {
       ) : (
         // Show editor once data is loaded or created
         <div className="container">
-          <div className="header-actions">
-            <button onClick={resetData} className="reset-btn">
-              Start Over
-            </button>
-          </div>
-          
           <CSVDataEditor 
             data={csvData} 
             headers={headers}
             onDataChange={handleDataChange}
+            resetData={resetData}
           />
-          
-          <CSVExporter data={csvData} headers={headers} />
         </div>
       )}
     </div>

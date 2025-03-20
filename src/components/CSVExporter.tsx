@@ -39,7 +39,9 @@ const CSVExporter = ({ data, headers }: CSVExporterProps) => {
       <button 
         onClick={handleExport}
         disabled={data.length === 0}
+        className="magic-export-btn action-button"
       >
+        <span className="magic-wand">✨</span>
         Export to CSV
       </button>
     </div>

@@ -1,8 +1,9 @@
 #root {
-  max-width: 1280px;
+  max-width: 600px;
   margin: 0 auto;
-  padding: 2rem;
+  padding: 0;
   width: 100%;
+  min-height: 100vh;
 }
 
 .logo {
@@ -44,6 +45,7 @@
 .app {
   text-align: center;
   color: #213547;
+  padding-top: 2rem;
 }
 
 .app-header {
@@ -62,7 +64,6 @@
   display: flex;
   flex-direction: column;
   gap: 2rem;
-  margin-top: 2rem;
 }
 
 .initial-container {
@@ -86,19 +87,19 @@
   margin: 0 0.5rem;
   font-size: 1rem;
   cursor: pointer;
-  border-bottom: 3px solid transparent;
-  transition: all 0.2s;
+  border-radius: 0;
 }
 
 .tabs button:hover {
-  color: #0077ff;
-  background-color: #f0f7ff;
+  color: #1ea9ff;
+  background-color: transparent;
 }
 
 .tabs button.active {
-  color: #0077ff;
-  border-bottom-color: #0077ff;
-  font-weight: 500;
+  color: #1ea9ff;
+  border-bottom: 3px inset #1ea9ff;
+  font-weight: 600;
+  margin-bottom: -1px;
 }
 
 .tab-content {
@@ -147,9 +148,83 @@
 }
 
 .error-message {
-  color: #e53935;
-  margin-bottom: 1rem;
+  color: #7d1212;
+  font-size: 0.75rem;
+  display: block;
+}
+
+.form-group input.error {
+  border-color: transparent;
+  background-color: #fff8f8;
+}
+
+.form-group input.error::placeholder {
+  color: #7d1212;
+
+}
+
+.form-group input.error:focus, .form-group input.error:focus-visible {
+  border-color: #f17878;
+  outline-color: #f17878;
+  box-shadow: 0 0 0 1px #f17878;
+}
+
+/* Date input specific styles */
+input[type="date"] {
+  font-family: inherit;
+  padding: 0.5rem;
+  border: 1px solid #ddd;
+  border-radius: 4px;
   font-size: 0.9rem;
+  width: 100%;
+}
+
+input[type="date"]:focus {
+  outline: none;
+  border-color: #0077ff;
+  box-shadow: 0 0 0 1px #0077ff;
+}
+
+input[type="date"].error {
+  border-color: #f17878;
+  background-color: #fff8f8;
+}
+
+input[type="date"].error:focus {
+  border-color: #f17878;
+  box-shadow: 0 0 0 1px #f17878;
+}
+
+/* Checkbox field specific styles */
+.checkbox-field {
+  padding: 0.5rem 0;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.checkbox-container {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: 0;
+}
+
+.checkbox-container input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+  margin: 0;
+  cursor: pointer;
+}
+
+.checkbox-container label {
+  margin: 0;
+  font-size: 0.9rem;
+}
+
+.checkbox-field .error-message {
+  margin-left: 1.5rem;
 }
 
 .create-btn {
@@ -160,32 +235,36 @@
 .header-actions {
   display: flex;
   justify-content: flex-end;
-  margin-bottom: -1rem;
+  align-items: center;
+  margin-bottom: 1rem;
+  gap: 1rem;
+}
+
+.header-actions.floating {
+  position: fixed;
+  bottom: 7.5rem;
+  left: 50%;
+  transform: translateX(calc(300px + 1rem)); /* 300px is half of max-width 600px */
+  z-index: 100;
+  background-color: white;
+  padding: 0.5rem;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+  border-radius: 8px;
 }
 
 .reset-btn {
-  background-color: #f44336;
-  color: white;
+  background-color: transparent;
+  color: #1ea9ff;
+  display: flex;
+  align-items: center;
+  padding: 0;
+  font-size: 0.9rem;
+  border: none;
+  cursor: pointer;
 }
 
-.reset-btn:hover {
-  background-color: #d32f2f;
-}
-
-.add-row-btn {
-  background-color: #4caf50;
-}
-
-.add-row-btn:hover {
-  background-color: #388e3c;
-}
-
-.remove-row-btn {
-  background-color: #f44336;
-}
-
-.remove-row-btn:hover {
-  background-color: #d32f2f;
+.reset-icon {
+  font-size: 1.2rem;
 }
 
 /* CSV Importer Styles */
@@ -207,6 +286,9 @@
 .file-name {
   font-size: 0.9rem;
   color: #555;
+  background-color: #efefef;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
 }
 
 .advanced-options-toggle {
@@ -217,14 +299,13 @@
 
 .toggle-button {
   background-color: transparent;
-  color: #0077ff;
-  border: 1px solid #0077ff;
+  color: #1ea9ff;
   font-size: 0.8rem;
   padding: 0.4rem 0.8rem;
 }
 
 .toggle-button:hover {
-  background-color: #f0f7ff;
+  background-color:transparent;
 }
 
 .advanced-options {
@@ -266,60 +347,80 @@
   background-color: #ffffff;
   padding: 1.5rem;
   border-radius: 8px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  box-shadow: 2px 2px 20px 4px rgba(0, 0, 0, 0.1);
 }
 
 .navigation {
   display: flex;
-  flex-direction: column;
+  justify-content: space-between;
   align-items: center;
-  margin-bottom: 1.5rem;
-}
-
-.navigation span {
-  margin-bottom: 0.5rem;
-  font-weight: 500;
+  margin-bottom: 1rem;
+  padding: .5rem 0;
+  border-bottom: 1px solid #e0e0e0;
 }
 
 .navigation-buttons {
   display: flex;
-  gap: 1rem;
+  align-items: center;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  margin-left: auto;
+}
+
+.navigation-buttons button {
+  margin: 0;
 }
 
 .data-form {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  display: flex;
+  flex-direction: column;
   gap: 1rem;
   text-align: left;
+  max-width: 100%;
+  overflow-x: auto;
 }
 
 .form-group {
   display: flex;
   flex-direction: column;
-  gap: 0.5rem;
+  min-width: 300px;
 }
 
 .form-group label {
   font-weight: 500;
-  font-size: 0.9rem;
+  font-size: 0.85rem;
+  color: #333;
+  word-wrap: break-word;
 }
 
 .form-group input {
   padding: 0.5rem;
   border: 1px solid #ddd;
   border-radius: 4px;
-  font-size: 1rem;
+  font-size: 0.9rem;
 }
 
-/* Checkbox Field Styles */
+/* Date field specific styles */
+.form-group input[type="date"] {
+  font-family: inherit;
+  padding: 0.5rem;
+}
+
+/* Checkbox field specific styles */
 .form-group.checkbox-field {
   padding: 0.5rem 0;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 0.5rem;
 }
 
 .checkbox-container {
   display: flex;
   align-items: center;
   gap: 0.5rem;
+  margin-top: 0;
 }
 
 .checkbox-container input[type="checkbox"] {
@@ -330,32 +431,463 @@
 }
 
 .checkbox-container label {
-  cursor: pointer;
   margin: 0;
+  font-size: 0.9rem;
 }
 
 /* CSV Exporter Styles */
 .csv-exporter {
-  margin-top: 1rem;
+  display: flex;
+  gap: 0.5rem;
+}
+
+.csv-exporter button {
+  margin: 0;
 }
 
 /* Button Styles */
 button {
-  background-color: #0077ff;
+  background-color: #1ea9ff;
   color: white;
   border: none;
   padding: 0.6rem 1.2rem;
   font-size: 0.9rem;
   border-radius: 4px;
   cursor: pointer;
-  transition: background-color 0.2s;
 }
 
 button:hover {
-  background-color: #0055cc;
+  text-shadow: rgb(255, 255, 255) 1px 0 10px;
+    border: none;
+}
+
+button:focus, button:focus-visible{
+  outline:none;
 }
 
 button:disabled {
-  background-color: #cccccc;
+  background-color: #eee !important;
+  color: #999 !important;
   cursor: not-allowed;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .form-group {
+    min-width: 100%;
+  }
+  
+  .valid-period-pair {
+    flex-direction: column;
+  }
+}
+
+/* Select Group Styles */
+.select-group select {
+  padding: 0.5rem;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 0.9rem;
+  width: 100%;
+  background-color: white;
+  cursor: pointer;
+  appearance: none;
+  background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+  background-repeat: no-repeat;
+  background-position: right 0.5rem center;
+  background-size: 1.5em 1.5em;
+  padding-right: 2.5rem;
+}
+
+.select-group select:focus {
+  outline: none;
+  border-color: #0077ff;
+  box-shadow: 0 0 0 1px #0077ff;
+  width: calc(100% - 2px);
+  margin-left: 1px;
+  padding-left: 7px;
+}
+
+.select-group select:disabled {
+  background-color: #f5f5f5;
+  cursor: not-allowed;
+  color: #999;
+}
+
+.select-group select.error {
+  border-color: transparent;
+  background-color: #fff8f8;
+  color: #7d1212;
+}
+
+.select-group select.error:focus {
+  border-color: #f17878;
+  box-shadow: 0 0 0 1px #f17878;
+  width: calc(100% - 2px);
+  margin-left: 1px;
+  padding-left: 7px;
+}
+
+.select-group option {
+  padding: 0.5rem;
+}
+
+/* Remove old radio group styles */
+.radio-group,
+.radio-options,
+.radio-option {
+  display: none;
+}
+
+/* Custom Date Input Styles */
+input[type="text"][pattern="\\d{4}/\\d{2}/\\d{2}"] {
+  font-family: monospace;
+  letter-spacing: 0.1em;
+  width: 120px;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 14px;
+}
+
+input[type="text"][pattern="\\d{4}/\\d{2}/\\d{2}"]:focus {
+  outline: none;
+  border-color: #007bff;
+  box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.25);
+}
+
+input[type="text"][pattern="\\d{4}/\\d{2}/\\d{2}"].error {
+  background-color: #fff8f8;
+  border:none;
+}
+
+input[type="text"][pattern="\\d{4}/\\d{2}/\\d{2}"].error:focus {
+  box-shadow: 0 0 0 2px rgba(220, 53, 69, 0.25);
+}
+
+.date-input-container {
+  position: relative;
+  display: inline-block;
+}
+
+.error-message {
+  bottom: -20px;
+  left: 0;
+  font-size: 12px;
+}
+
+input[type="text"][pattern="\\d{4}/\\d{2}/\\d{2}"]::placeholder {
+  color: #999;
+  font-family: inherit;
+  letter-spacing: normal;
+}
+
+/* Input with Button Styles */
+.input-with-button {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+.input-with-button input {
+  flex: 1;
+}
+
+.transform-btn {
+  background-color: #6c757d;
+  color: white;
+  border: none;
+  padding: 0.5rem 0.8rem;
+  font-size: 0.8rem;
+  border-radius: 4px;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: background-color 0.2s;
+}
+
+.transform-btn:hover {
+  background-color: #5a6268;
+}
+
+.transform-btn:active, .transform-btn:focus-visible {
+  background-color: #545b62;
+}
+
+/* Valid Period Field Styles */
+.valid-period-group {
+  width: 100%;
+}
+
+#valid-period-subtitle {
+  font-size: 1rem;
+  color: #333;
+  margin-bottom: 0.75rem;
+  font-weight: 500;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid #e0e0e0;
+  width: 100%;
+}
+
+.access-requirements-subtitle {
+  font-size: 1rem;
+  color: #333;
+  margin: 1.5rem 0 0.75rem 0;
+  font-weight: 500;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid #e0e0e0;
+  width: 100%;
+}
+
+.valid-period-pair {
+  display: flex;
+  gap: 1rem;
+  align-items: flex-start;
+}
+
+.valid-period-pair:last-child {
+  margin-bottom: 0;
+}
+
+.valid-period-pair .form-group {
+  margin-bottom: 0;
+}
+
+.valid-period-pair label {
+  display: block;
+  font-weight: 500;
+}
+
+.valid-period-pair .error-message {
+  font-size: 0.8rem;
+  color: #7d1212;
+}
+
+.character-count {
+  font-size: 0.75rem;
+  color: #666;
+  margin-left: 0.5rem;
+  font-weight: normal;
+}
+
+/* When approaching the limit (80% or more), show warning color */
+.character-count.warning {
+  color: #f57c00;
+}
+
+/* When at the limit, show error color */
+.character-count.error {
+  color: #d32f2f;
+}
+
+/* Validation Status Indicator */
+.validation-wrapper {
+  align-items: center;
+  margin-right: auto;
+  margin-bottom: 1rem;
+}
+
+.validation-status {
+  display: flex;
+  align-items: center;
+  font-size: 0.9rem;
+  font-weight: 500;
+  padding: 0.25rem .75rem 0.25rem .75rem;
+  border-radius: 4px;
+}
+
+.validation-status:hover{
+  cursor:default;
+}
+
+.validation-status.valid {
+  background-color: #e8f5e9;
+  color: #2e7d32;
+}
+
+.validation-status.invalid {
+  background-color: #fff8f8;
+  color: #7d1212;
+}
+
+/* Error Details Button */
+.error-details-button {
+  background-color: transparent;
+  border: none;
+  font-size: 1.1rem;
+  cursor: pointer;
+  margin-left: 0.25rem;
+  padding: 0.25rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+}
+
+/* Error Popup */
+.error-popup {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.error-popup-content {
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  width: 90%;
+  max-width: 800px;
+  max-height: 90vh;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.error-popup-header {
+  padding: 1rem;
+  background-color: #f5f5f5;
+  border-bottom: 1px solid #e0e0e0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.error-popup-header h3 {
+  margin: 0;
+  color: #333;
+  font-size: 1.2rem;
+}
+
+.close-button {
+  background: transparent;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: #666;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  transition: background-color 0.2s;
+}
+
+.close-button:hover {
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+.error-popup-body {
+  padding: 1rem;
+  overflow-y: auto;
+  max-height: calc(90vh - 80px);
+}
+
+.error-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.error-table th,
+.error-table td {
+  padding: 0.75rem;
+  text-align: left;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.error-table th {
+  background-color: #f5f5f5;
+  font-weight: 500;
+  color: #333;
+}
+
+.error-table tr:last-child td {
+  border-bottom: none;
+}
+
+.error-table tr:hover {
+  background-color: #f9f9f9;
+}
+
+/* CSV Data Editor Styles */
+.row-indicator {
+  margin-bottom: 10px;
+  font-weight: bold;
+  text-align: center;
+}
+
+.magic-export-btn {
+  background-color: #9c27b0;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: background-color 0.3s, transform 0.2s;
+  padding: 0.6rem 1.2rem;
+  font-size: 0.9rem;
+  height: 40px;
+}
+
+.magic-wand {
+  display: inline-block;
+  font-size: 1.2em;
+  animation: sparkle 1.5s infinite alternate;
+}
+
+@keyframes sparkle {
+  0% {
+    opacity: 0.7;
+    transform: scale(0.9) rotate(-5deg);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1.1) rotate(5deg);
+  }
+}
+
+.action-button {
+  padding: 0.6rem 1.2rem .6rem .8rem;
+  font-size: 0.9rem;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: background-color 0.3s, transform 0.2s;
+  border-radius: 4px;
+  border: none;
+  color: white;
+  cursor: pointer;
+}
+
+.magic-export-btn {
+  background-color: #9c27b0;
+}
+
+.pale-blue-btn {
+  background-color: #e3effb;
+  color: #12467b;
+  padding: 0.5rem;
+  height: 40px;
+  width: 40px;
+  -webkit-text-stroke: thin;
+}
+
+.navigation-button-icon {
+  font-size: 1.2rem;
+}
+
+.remove-icon {
+  padding: 1.25px 0;
+}
+
+.helper-text{
+  font-size: 0.8rem;
+  color: #666;
+  margin-top: 0.25rem;
 }
