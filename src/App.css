@@ -148,14 +148,14 @@
 }
 
 .error-message {
-  color: #7d1212;
+  color: #b84377;
   font-size: 0.75rem;
   display: block;
 }
 
 .form-group input.error {
   border-color: transparent;
-  background-color: #fff8f8;
+  background-color: #b843771c;
 }
 
 .form-group input.error::placeholder {
@@ -164,9 +164,9 @@
 }
 
 .form-group input.error:focus, .form-group input.error:focus-visible {
-  border-color: #f17878;
-  outline-color: #f17878;
-  box-shadow: 0 0 0 1px #f17878;
+  border-color: #b84377;
+  outline-color: #b84377;
+  box-shadow: 0 0 0 1px #b84377;
 }
 
 /* Date input specific styles */
@@ -186,13 +186,13 @@ input[type="date"]:focus {
 }
 
 input[type="date"].error {
-  border-color: #f17878;
-  background-color: #fff8f8;
+  border-color: #b84377;
+  background-color: #b843771c;
 }
 
 input[type="date"].error:focus {
-  border-color: #f17878;
-  box-shadow: 0 0 0 1px #f17878;
+  border-color: #b84377;
+  box-shadow: 0 0 0 1px #b84377;
 }
 
 /* Checkbox field specific styles */
@@ -242,7 +242,7 @@ input[type="date"].error:focus {
 
 .header-actions.floating {
   position: fixed;
-  bottom: 7.5rem;
+  top: 37em;
   left: 50%;
   transform: translateX(calc(300px + 1rem)); /* 300px is half of max-width 600px */
   z-index: 100;
@@ -355,8 +355,9 @@ input[type="date"].error:focus {
   justify-content: space-between;
   align-items: center;
   margin-bottom: 1rem;
-  padding: .5rem 0;
-  border-bottom: 1px solid #e0e0e0;
+  padding: .2em .5em;
+  border-radius: 4px;
+  background-color: #efefef;
 }
 
 .navigation-buttons {
@@ -466,7 +467,7 @@ button:focus, button:focus-visible{
 }
 
 button:disabled {
-  background-color: #eee !important;
+  background-color: #fff;
   color: #999 !important;
   cursor: not-allowed;
 }
@@ -512,17 +513,19 @@ button:disabled {
   background-color: #f5f5f5;
   cursor: not-allowed;
   color: #999;
+  background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23a0acbd' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
 }
 
 .select-group select.error {
   border-color: transparent;
-  background-color: #fff8f8;
-  color: #7d1212;
+  background-color: #b843771c;
+  color: #b84377;
+  background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23b84377' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
 }
 
 .select-group select.error:focus {
-  border-color: #f17878;
-  box-shadow: 0 0 0 1px #f17878;
+  border-color: #b84377;
+  box-shadow: 0 0 0 1px #b84377;
   width: calc(100% - 2px);
   margin-left: 1px;
   padding-left: 7px;
@@ -557,7 +560,7 @@ input[type="text"][pattern="\\d{4}/\\d{2}/\\d{2}"]:focus {
 }
 
 input[type="text"][pattern="\\d{4}/\\d{2}/\\d{2}"].error {
-  background-color: #fff8f8;
+  background-color: #b843771c;
   border:none;
 }
 
@@ -659,7 +662,7 @@ input[type="text"][pattern="\\d{4}/\\d{2}/\\d{2}"]::placeholder {
 
 .valid-period-pair .error-message {
   font-size: 0.8rem;
-  color: #7d1212;
+  color: #b84377;
 }
 
 .character-count {
@@ -676,7 +679,7 @@ input[type="text"][pattern="\\d{4}/\\d{2}/\\d{2}"]::placeholder {
 
 /* When at the limit, show error color */
 .character-count.error {
-  color: #d32f2f;
+  color: #b84377;
 }
 
 /* Validation Status Indicator */
@@ -689,9 +692,10 @@ input[type="text"][pattern="\\d{4}/\\d{2}/\\d{2}"]::placeholder {
 .validation-status {
   display: flex;
   align-items: center;
+  justify-content: space-between;
   font-size: 0.9rem;
   font-weight: 500;
-  padding: 0.25rem .75rem 0.25rem .75rem;
+  padding: 0.25rem .25rem 0.25rem .75rem;
   border-radius: 4px;
 }
 
@@ -705,23 +709,21 @@ input[type="text"][pattern="\\d{4}/\\d{2}/\\d{2}"]::placeholder {
 }
 
 .validation-status.invalid {
-  background-color: #fff8f8;
-  color: #7d1212;
+  background-color: #b843771c;
+  color: #b84377;
 }
 
 /* Error Details Button */
 .error-details-button {
   background-color: transparent;
   border: none;
-  font-size: 1.1rem;
   cursor: pointer;
   margin-left: 0.25rem;
-  padding: 0.25rem;
+  padding: 0 0.25rem;
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 32px;
-  height: 32px;
+  color: #b84377;
 }
 
 /* Error Popup */
@@ -870,20 +872,41 @@ input[type="text"][pattern="\\d{4}/\\d{2}/\\d{2}"]::placeholder {
 }
 
 .pale-blue-btn {
-  background-color: #e3effb;
-  color: #12467b;
-  padding: 0.5rem;
-  height: 40px;
-  width: 40px;
-  -webkit-text-stroke: thin;
+  padding: .1em 0 0 0;
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.3s, background-color 0.3s ease-in;
+  z-index: 1;
+  background-color: #efefef;
 }
 
-.navigation-button-icon {
-  font-size: 1.2rem;
+.pale-blue-btn.next-btn{
+  margin-left: -.5em;
 }
 
-.remove-icon {
-  padding: 1.25px 0;
+.pale-blue-btn.add-btn{
+  margin-right: -.5em;
+}
+
+.pale-blue-btn.delete-btn{
+  margin: 0 .25em .1em 0;
+}
+
+.pale-blue-btn:disabled {
+  transition: none;
+  background-color: #efefef;
+}
+
+.pale-blue-btn svg g{
+  stroke: #6c757d;
+}
+
+.pale-blue-btn:disabled svg g{
+  stroke: #ccc;
+}
+
+.pale-blue-btn:hover:not(:disabled) svg path{
+  stroke: #3c4856;
 }
 
 .helper-text{

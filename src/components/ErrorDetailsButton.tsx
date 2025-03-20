@@ -12,7 +12,7 @@ const ErrorDetailsButton: React.FC<ErrorDetailsButtonProps> = ({ onClick, classN
       onClick={onClick}
       title="View error details"
     >
-      &#128269;
+      [View Error Details]
     </button>
   );
 };

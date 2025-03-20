@@ -4,6 +4,10 @@ import CustomDateInput from './CustomDateInput';
 import CSVExporter from './CSVExporter';
 import ResetButton from './ResetButton';
 import ErrorDetailsButton from './ErrorDetailsButton';
+import DeleteRow from './DeleteRow';
+import AddRow from './AddRow';
+import NextRow from './NextRow';
+import PreviousRow from './PreviousRow';
 
 interface CSVDataEditorProps {
   data: any[];
@@ -866,29 +870,29 @@ const CSVDataEditor: React.FC<CSVDataEditorProps> = ({ data, headers, onDataChan
       <div className="navigation">
       <ResetButton onClick={resetData} />
         <div className="navigation-buttons">
-          <button title="Previous Row" className="pale-blue-btn" onClick={handlePrevious} disabled={currentIndex === 0 || data.length === 0}>
-          <span className="navigation-button-icon">⏴</span>
-          </button>
-          <button title="Next Row" className="pale-blue-btn" onClick={handleNext} disabled={currentIndex === data.length - 1 || data.length === 0}>
-          <span className="navigation-button-icon">⏵</span>
-          </button>
-          <button className="pale-blue-btn" onClick={handleAddNewRow} title="Add Row">
-          <span className="navigation-button-icon">➕</span>
+          <button className="pale-blue-btn add-btn" onClick={handleAddNewRow} title="Add Row">
+            <AddRow />
           </button>
           <button 
             onClick={handleRemoveRow} 
-            className="pale-blue-btn"
+            className="pale-blue-btn delete-btn"
             disabled={data.length === 0}
             title="Remove Row"
           >
-            <span className="navigation-button-icon remove-icon">🗑</span>
+            <DeleteRow />
+          </button>
+          <button title="Previous Row" className="pale-blue-btn" onClick={handlePrevious} disabled={currentIndex === 0 || data.length === 0}>
+            <PreviousRow />
+          </button>
+          <button title="Next Row" className="pale-blue-btn next-btn" onClick={handleNext} disabled={currentIndex === data.length - 1 || data.length === 0}>
+            <NextRow />
           </button>
         </div>
       </div>
       <div className="validation-wrapper">
         <div className={`validation-status ${Object.values(validationErrors).some(error => error !== '') ? 'invalid' : 'valid'}`}>
           {Object.values(validationErrors).some(error => error !== '') 
-            ? `Validation errors: ${Object.values(validationErrors).filter(error => error !== '').length}` 
+            ? `✘ Validation errors: ${Object.values(validationErrors).filter(error => error !== '').length}` 
             : '✓ All validations pass'}
             {Object.values(validationErrors).some(error => error !== '') && (
           <ErrorDetailsButton onClick={() => setShowErrorPopup(true)}/>

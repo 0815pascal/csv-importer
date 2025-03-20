@@ -12,10 +12,23 @@ const CSVExporter = ({ data, headers }: CSVExporterProps) => {
       return;
     }
 
+    // Filter out empty rows (rows with only commas and zeros)
+    const filteredData = data.filter(row => {
+      // Check if any value is not empty or "0"
+      return Object.values(row).some(value => 
+        value !== "" && value !== "0" && value !== 0
+      );
+    });
+
+    if (filteredData.length === 0) {
+      alert('No non-empty data to export');
+      return;
+    }
+
     // Generate CSV data
     const csv = Papa.unparse({
       fields: headers,
-      data: data
+      data: filteredData
     });
 
     // Create a blob and download link
